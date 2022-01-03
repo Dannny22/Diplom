@@ -23,8 +23,9 @@ public class PlayerHeals : MonoBehaviour
 
         if (HP <= 0)
         {
-            gameObject.SetActive(false);
-            Instantiate(Ragdoll, transform.position, transform.rotation);
+            //gameObject.SetActive(false);
+            gameObject.GetComponent<Animator>().SetTrigger("dead");
+            //Instantiate(Ragdoll, transform.position, transform.rotation);
         }
 
     }
@@ -32,6 +33,7 @@ public class PlayerHeals : MonoBehaviour
     {
         if (other.tag == "EnemySword")
         {
+            gameObject.GetComponent<Animator>().SetTrigger("damage");
             HP = HP - 0.1f;
         }
     }
