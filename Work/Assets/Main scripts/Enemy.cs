@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
     public GameObject Player;
     public float dist;
     NavMeshAgent nav;
@@ -29,7 +28,7 @@ public class Enemy : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
-       
+
         if (dist > Radius)
         {
             nav.speed = 2;
@@ -40,7 +39,6 @@ public class Enemy : MonoBehaviour
 
         if (dist < Radius && dist > 1.5f)
         {
-
             nav.speed = 5;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
             gameObject.GetComponent<Animator>().SetBool("run", true);
@@ -60,8 +58,6 @@ public class Enemy : MonoBehaviour
             Instantiate(Ragdoll, transform.position, transform.rotation);
         }
     }
-
-   
 
     void OnTriggerEnter(Collider other)
     {
