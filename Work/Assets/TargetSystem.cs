@@ -6,7 +6,7 @@ public class TargetSystem : MonoBehaviour
 {
 	public Transform player;
 	public float range = 15;
-	public int enemyLayer = 8;
+	public int enemyLayer;
 
 	public Texture2D aim;
 	public float aimSize = 50;
@@ -14,33 +14,6 @@ public class TargetSystem : MonoBehaviour
 	private GameObject currentTarget;
 	private Collider[] colls = new Collider[0];
 
-	//void RandomTarget()
-	//{
-	//	GameObject[] tmp = new GameObject[0];
-
-	//	int x = 0;
-	//	foreach (Collider element in colls)
-	//	{
-	//		if (currentTarget != element.gameObject) x++;
-	//	}
-	//	GameObject[] pureArray = new GameObject[x];
-	//	x = 0;
-	//	foreach (Collider element in colls)
-	//	{
-	//		if (currentTarget != element.gameObject)
-	//		{
-	//			pureArray[x] = element.gameObject;
-	//			x++;
-	//		}
-	//	}
-	//	tmp = new GameObject[pureArray.Length];
-	//	for (int i = 0; i < tmp.Length; i++)
-	//	{
-	//		tmp[i] = pureArray[i];
-	//	}
-
-	//	currentTarget = tmp[Random.Range(0, tmp.Length)];
-	//}
 
 	void PlayerRotate()
 	{
@@ -77,10 +50,6 @@ public class TargetSystem : MonoBehaviour
 				{
 					NearTarget();
 				}
-				//else if (Input.GetKeyDown(KeyCode.LeftControl)) // выбор случайной цели, исключая текущую - левый контрол
-				//{
-				//	RandomTarget();
-				//}
 			}
 
 			if (colls.Length == 0)
