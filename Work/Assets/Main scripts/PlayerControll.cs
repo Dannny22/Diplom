@@ -22,6 +22,11 @@ public class PlayerControll : MonoBehaviour
     public LayerMask groundMask;
     bool onGround;
 
+    public GameObject Skill1;
+    public float countdown = 0f;
+    public float Mana = 1f;
+    public Image UIMana;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +37,22 @@ public class PlayerControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UIMana.fillAmount = Mana;
+        countdown -= Time.deltaTime;
+        Mana += Time.deltaTime / 25f;
+
+        if (Mana > 1f)
+        {
+            Mana = 1f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) & countdown <= 0 & Mana >= 0.25f)
+        {
+            Instantiate(Skill1, transform.position, transform.rotation);
+            countdown = 5f;
+            Mana = Mana - 0.25f;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             gameObject.GetComponent<Animator>().SetTrigger("attack");

@@ -69,6 +69,11 @@ public class Enemy : MonoBehaviour
         {
             HP = HP - 25f;
         }
+
+        if (other.tag == "Skill1")
+        {
+            HP = HP - 100f;
+        }
     }
 
 }

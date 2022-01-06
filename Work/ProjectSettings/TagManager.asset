@@ -8,6 +8,8 @@ TagManager:
   - ground
   - EnemySword
   - PlayerSword
+  - Fire
+  - Skill1
   layers:
   - Default
   - TransparentFX
