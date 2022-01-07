@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
-        
+
 
         if (dist > Radius)
         {
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.tag == "PlayerSword")
         {
             HP = HP - 25f;
@@ -81,6 +81,13 @@ public class Enemy : MonoBehaviour
 
         }
 
+        if (other.tag == "Skill2")
+        {
+            
+            HP = HP - 50f;
+
+        }
+
     }
     private IEnumerator BurnDamage()
     {
@@ -91,9 +98,9 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-
-    
 }
+    
+
 
 
 

@@ -10,6 +10,7 @@ TagManager:
   - PlayerSword
   - Fire
   - Skill1
+  - Skill2
   layers:
   - Default
   - TransparentFX

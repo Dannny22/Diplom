@@ -23,7 +23,9 @@ public class PlayerControll : MonoBehaviour
     bool onGround;
 
     public GameObject Skill1;
-    public float countdown = 0f;
+    public GameObject Skill2;
+    public float CountdownSkill1 = 0f;
+    public float CountdownSkill2 = 0f;
     public float Mana = 1f;
     public Image UIMana;
 
@@ -38,7 +40,8 @@ public class PlayerControll : MonoBehaviour
     void Update()
     {
         UIMana.fillAmount = Mana;
-        countdown -= Time.deltaTime;
+        CountdownSkill1 -= Time.deltaTime;
+        CountdownSkill2 -= Time.deltaTime;
         Mana += Time.deltaTime / 25f;
 
         if (Mana > 1f)
@@ -46,11 +49,18 @@ public class PlayerControll : MonoBehaviour
             Mana = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) & countdown <= 0 & Mana >= 0.25f)
+        if (Input.GetKeyDown(KeyCode.Alpha1) & CountdownSkill1 <= 0 & Mana >= 0.25f)
         {
             Instantiate(Skill1, transform.position, transform.rotation);
-            countdown = 5f;
+            CountdownSkill1 = 5f;
             Mana = Mana - 0.25f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) & CountdownSkill2 <= 0 & Mana >= 0.5f)
+        {
+            Instantiate(Skill2, transform.position, transform.rotation);
+            CountdownSkill2 = 10f;
+            Mana = Mana - 0.5f;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
