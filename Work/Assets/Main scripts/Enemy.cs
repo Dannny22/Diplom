@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float Radius = 15;
     public float HP = 100;
     public GameObject Ragdoll;
+    public float BurnTime = 0f;
 
 
 
@@ -29,7 +30,8 @@ public class Enemy : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
-       
+        
+
         if (dist > Radius)
         {
             nav.speed = 2;
@@ -61,21 +63,36 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "PlayerSword")
         {
             HP = HP - 25f;
         }
 
+
         if (other.tag == "Skill1")
         {
-            HP = HP - 100f;
+            BurnTime = 10f;
+            HP = HP - 20f;
+            StartCoroutine(BurnDamage());
+
+        }
+
+    }
+    private IEnumerator BurnDamage()
+    {
+        while (BurnTime > 0)
+        {
+            BurnTime = BurnTime - 1f;
+            HP = HP - 1f;
+            yield return new WaitForSeconds(1f);
         }
     }
 
+    
 }
 
 
