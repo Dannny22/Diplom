@@ -31,7 +31,7 @@ public class PlayerHeals : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "EnemySword")
+        if (other.tag == "EnemySword" & Enemy.AttackEnemy == true)
         {
             gameObject.GetComponent<Animator>().SetTrigger("damage");
             HP = HP - 0.1f;

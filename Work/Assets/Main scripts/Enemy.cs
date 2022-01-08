@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 public class Enemy : MonoBehaviour
 {
 
@@ -14,6 +15,11 @@ public class Enemy : MonoBehaviour
     public float HP = 100;
     public GameObject Ragdoll;
     public float BurnTime = 0f;
+    //PlayerControll playercontroll = new PlayerControll();
+    //public Animator anim;
+    public static bool Attack;
+    public static bool AttackEnemy;
+
 
 
 
@@ -24,16 +30,19 @@ public class Enemy : MonoBehaviour
     }
 
 
-
+    void DiactivetAttack()
+    {
+        AttackEnemy = false;
+    }
     // Update is called once per frame
     void Update()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
 
-
         if (dist > Radius)
         {
+            //anim.SetBool("AttackEnemy", false);
             nav.speed = 2;
             gameObject.GetComponent<Animator>().SetTrigger("walk");
             gameObject.GetComponent<EnemyPatrol>().enabled = true;
@@ -53,6 +62,8 @@ public class Enemy : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetTrigger("attack");
             nav.enabled = false;
+            AttackEnemy = true;
+            Invoke("DiactivetAttack", 1f);
 
         }
 
@@ -67,7 +78,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "PlayerSword")
+        if (other.tag == "PlayerSword" & Attack == true)
         {
             HP = HP - 25f;
         }

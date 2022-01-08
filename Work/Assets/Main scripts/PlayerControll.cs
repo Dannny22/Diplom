@@ -28,12 +28,17 @@ public class PlayerControll : MonoBehaviour
     public float CountdownSkill2 = 0f;
     public float Mana = 1f;
     public Image UIMana;
-
+    public int time = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim.SetBool("start", true);
+        anim.SetBool("start", false);
+    }
+    void DiactivetAttack()
+    {
+        Enemy.Attack = false;
     }
 
     // Update is called once per frame
@@ -43,7 +48,8 @@ public class PlayerControll : MonoBehaviour
         CountdownSkill1 -= Time.deltaTime;
         CountdownSkill2 -= Time.deltaTime;
         Mana += Time.deltaTime / 25f;
-
+        anim.SetBool("Jump", false);
+        
         if (Mana > 1f)
         {
             Mana = 1f;
@@ -62,12 +68,13 @@ public class PlayerControll : MonoBehaviour
             CountdownSkill2 = 10f;
             Mana = Mana - 0.5f;
         }
-
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Enemy.Attack = true;
+            Invoke("DiactivetAttack", 1f);
             gameObject.GetComponent<Animator>().SetTrigger("attack");
         }
-        anim.SetBool("Jump", false);
+        //anim.SetBool("Jump", false);
         onGround = Physics.CheckSphere(groundCheck.position, groundDistanse, groundMask);
 
         if(onGround && velocity.y < 0)
@@ -97,7 +104,6 @@ public class PlayerControll : MonoBehaviour
             anim.SetBool("Jump", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
