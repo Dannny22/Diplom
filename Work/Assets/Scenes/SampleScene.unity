@@ -1038,7 +1038,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774670383}
-  m_LocalRotation: {x: 0.1295888, y: -0.000000025890335, z: 0.0000000033836285, w: 0.99156785}
+  m_LocalRotation: {x: 0.12958877, y: 0.000000003919485, z: -5.1224053e-10, w: 0.99156785}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4846,6 +4846,10 @@ MonoBehaviour:
   HP: 100
   Ragdoll: {fileID: 7593052983732330960, guid: b7a4483f9373f7c4982194db13f61c66, type: 3}
   BurnTime: 0
+  isSuperCombo: 0
+  maxTimeBetweenHits: 2
+  hitsUntilSuperCombo: 5
+  powerUpDuration: 5
 --- !u!143 &1477577955
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4858,7 +4862,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

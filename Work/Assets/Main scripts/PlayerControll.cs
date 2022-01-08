@@ -7,6 +7,7 @@ public class PlayerControll : MonoBehaviour
 {
     public CharacterController controller;
     public Animator anim;
+    
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -40,7 +41,7 @@ public class PlayerControll : MonoBehaviour
     {
         Enemy.Attack = false;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -71,10 +72,10 @@ public class PlayerControll : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Enemy.Attack = true;
-            Invoke("DiactivetAttack", 1f);
+            Invoke("DiactivetAttack", 0.5f);
             gameObject.GetComponent<Animator>().SetTrigger("attack");
         }
-        //anim.SetBool("Jump", false);
+        
         onGround = Physics.CheckSphere(groundCheck.position, groundDistanse, groundMask);
 
         if(onGround && velocity.y < 0)
@@ -110,5 +111,4 @@ public class PlayerControll : MonoBehaviour
 
 
     }
-
 }

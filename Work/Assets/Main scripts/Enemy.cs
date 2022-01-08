@@ -20,7 +20,13 @@ public class Enemy : MonoBehaviour
     public static bool Attack;
     public static bool AttackEnemy;
 
-
+    public bool isSuperCombo;
+    [SerializeField] private float maxTimeBetweenHits = 1;
+    [SerializeField] private int hitsUntilSuperCombo = 5;
+    [SerializeField] private float powerUpDuration = 5;
+    private int hitCounter;
+    private float lastHitTime;
+    private float powerUpResetTimer;
 
 
     // Start is called before the first frame update
@@ -33,6 +39,23 @@ public class Enemy : MonoBehaviour
     void DiactivetAttack()
     {
         AttackEnemy = false;
+    }
+    public void AddHit()
+    {
+        if (Time.time - lastHitTime < maxTimeBetweenHits)
+        {
+            hitCounter++;
+            if (hitCounter >= hitsUntilSuperCombo)
+            {
+                isSuperCombo = true;
+                powerUpResetTimer = powerUpDuration;
+            }
+        }
+        else
+        {
+            hitCounter = 1;
+        }
+        lastHitTime = Time.time;
     }
     // Update is called once per frame
     void Update()
@@ -66,7 +89,15 @@ public class Enemy : MonoBehaviour
             Invoke("DiactivetAttack", 1f);
 
         }
-
+        if (isSuperCombo)
+        {
+            powerUpResetTimer -= Time.deltaTime;
+            if (powerUpResetTimer <= 0)
+            {
+                isSuperCombo = false;
+                hitCounter = 0;
+            }
+        }
         if (HP <= 0)
         {
             gameObject.SetActive(false);
@@ -77,12 +108,16 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        if (other.tag == "PlayerSword" & Attack == true)
+        if (other.tag == "PlayerSword" & Attack == true & isSuperCombo == true)
         {
+            AddHit();
             HP = HP - 25f;
         }
-
+        else if (other.tag == "PlayerSword" & Attack == true)
+        {
+            AddHit();
+            HP = HP - 5f;
+        }
 
         if (other.tag == "Skill1")
         {
