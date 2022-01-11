@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     public float dist;
     NavMeshAgent nav;
     public float Radius = 15;
+
     // Start is called before the first frame update
     void Start()
     {

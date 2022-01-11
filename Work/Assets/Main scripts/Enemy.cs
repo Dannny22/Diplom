@@ -17,8 +17,10 @@ public class Enemy : MonoBehaviour
     public GameObject Ragdoll;
     public Image UIHP;
     public Text UIHpText;
-    public Text FireTime;
-    public Image Fire;
+    public Text FireTimeUI;
+    public Image FireUI;
+    public Text StunTimeUI;
+    public Image StunIU;
     public float BurnTime = 0f;
     public float StunTime = 0f;
     //PlayerControll playercontroll = new PlayerControll();
@@ -137,8 +139,8 @@ public class Enemy : MonoBehaviour
         }
         if (BurnTime <= 0f)
         {
-            FireTime.gameObject.SetActive(false);
-            Fire.gameObject.SetActive(false);
+            FireTimeUI.gameObject.SetActive(false);
+            FireUI.gameObject.SetActive(false);
         }
 
         if (other.tag == "Skill2")
@@ -152,6 +154,8 @@ public class Enemy : MonoBehaviour
         }
         if (StunTime <= 0f)
         {
+            StunIU.gameObject.SetActive(false);
+            StunTimeUI.gameObject.SetActive(false);
             gameObject.GetComponent<EnemyMovement>().enabled = true;
         }
 
@@ -161,6 +165,9 @@ public class Enemy : MonoBehaviour
     {
         while (StunTime > 0f)
         {
+            StunIU.gameObject.SetActive(true);
+            StunTimeUI.gameObject.SetActive(true);
+            StunTimeUI.text = "" + StunTime;
             StunTime = StunTime - 1f;
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -172,9 +179,9 @@ public class Enemy : MonoBehaviour
     {
         while (BurnTime > 0f)
         {
-            Fire.gameObject.SetActive(true);
-            FireTime.gameObject.SetActive(true);
-            FireTime.text = "" + BurnTime;
+            FireUI.gameObject.SetActive(true);
+            FireTimeUI.gameObject.SetActive(true);
+            FireTimeUI.text = "" + BurnTime;
             BurnTime = BurnTime - 1f;
             HP = HP - 5f;
             yield return new WaitForSeconds(1f);
