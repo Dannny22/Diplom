@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 
@@ -14,6 +15,10 @@ public class Enemy : MonoBehaviour
     //public float Radius = 15;
     public float HP = 100;
     public GameObject Ragdoll;
+    public Image UIHP;
+    public Text UIHpText;
+    public Text FireTime;
+    public Image Fire;
     public float BurnTime = 0f;
     public float StunTime = 0f;
     //PlayerControll playercontroll = new PlayerControll();
@@ -61,6 +66,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UIHpText.text = "" + HP;
+        UIHP.fillAmount = HP / 100;
+        
         //Player = GameObject.FindGameObjectWithTag("Player");
         //dist = Vector3.Distance(Player.transform.position, transform.position);
 
@@ -127,6 +135,11 @@ public class Enemy : MonoBehaviour
             StartCoroutine(BurnDamage());
 
         }
+        if (BurnTime <= 0f)
+        {
+            FireTime.gameObject.SetActive(false);
+            Fire.gameObject.SetActive(false);
+        }
 
         if (other.tag == "Skill2")
         {
@@ -137,15 +150,16 @@ public class Enemy : MonoBehaviour
             HP = HP - 20f;
             
         }
-        if (StunTime <= 0)
+        if (StunTime <= 0f)
         {
             gameObject.GetComponent<EnemyMovement>().enabled = true;
         }
+
     }
 
     private IEnumerator Stunning()
     {
-        while (StunTime > 0)
+        while (StunTime > 0f)
         {
             StunTime = StunTime - 1f;
             gameObject.GetComponent<EnemyMovement>().enabled = false;
@@ -156,10 +170,13 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator BurnDamage()
     {
-        while (BurnTime > 0)
+        while (BurnTime > 0f)
         {
+            Fire.gameObject.SetActive(true);
+            FireTime.gameObject.SetActive(true);
+            FireTime.text = "" + BurnTime;
             BurnTime = BurnTime - 1f;
-            HP = HP - 1f;
+            HP = HP - 5f;
             yield return new WaitForSeconds(1f);
         }
     }
