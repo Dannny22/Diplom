@@ -30,6 +30,7 @@ public class PlayerControll : MonoBehaviour
     public float Mana = 1f;
     public Image UIMana;
     public int time = 0;
+    //public bool Roll;
     //public Image UISkill1;
     //public Image UISkill2;
     public Text UISkill1Time;
@@ -45,17 +46,31 @@ public class PlayerControll : MonoBehaviour
     {
         Enemy.Attack = false;
     }
-    
+    void DiactivetRoll()
+    {
+        //Roll = false;
+        anim.SetBool("Roll 0", false);
+    }
     // Update is called once per frame
     void Update()
     {
         UIMana.fillAmount = Mana;
         Mana += Time.deltaTime / 25f;
-        anim.SetBool("Jump", false);
-
+        //anim.SetBool("Jump", false);
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Crouch");
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Idle");
+        }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Roll");
+            //gameObject.GetComponent<Animator>().SetTrigger("Roll");
+            //Roll = true;
+            Invoke("DiactivetRoll", 0.5f);
+            anim.SetBool("Roll 0", true);
         }
 
         if (Mana > 1f)
@@ -124,7 +139,8 @@ public class PlayerControll : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && onGround)
         {
-            anim.SetBool("Jump", true);
+            gameObject.GetComponent<Animator>().SetTrigger("Jump 0");
+            //anim.SetBool("Jump", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
