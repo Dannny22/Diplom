@@ -39,6 +39,7 @@ public class PlayerControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         anim.SetBool("start", true);
         anim.SetBool("start", false);
     }

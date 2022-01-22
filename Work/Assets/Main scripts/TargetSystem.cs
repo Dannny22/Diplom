@@ -7,18 +7,25 @@ public class TargetSystem : MonoBehaviour
 	public Transform player;
 	public float range = 15;
 	public int enemyLayer;
-
 	public Texture2D aim;
 	public float aimSize = 50;
-
+	public Transform camera;
 	private GameObject currentTarget;
 	private Collider[] colls = new Collider[0];
+	public float rotY;
+	public float rotX;
+
 
 
 	void PlayerRotate()
 	{
 		if (currentTarget)
 		{
+			
+			//rotY = Mathf.Clamp(rotY, -30f, 30f);
+			//rotX = Mathf.Clamp(rotX, -90f, 90f);
+			//camera.transform.Rotate(-rotY, 0, 0);
+			//camera.transform.Rotate(0, rotX, 0);
 			Vector3 lookPos = currentTarget.transform.position - player.position;
 			lookPos.y = 0;
 			Quaternion rotation = Quaternion.LookRotation(lookPos);
@@ -42,8 +49,11 @@ public class TargetSystem : MonoBehaviour
 	{
 		if (Input.GetMouseButton(1))
 		{
+			rotY = Mathf.Clamp(rotY, -30f, 30f);
+			rotX = Mathf.Clamp(rotX, -90f, 90f);
 			GetTarget();
-
+			//camera.transform.Rotate(-rotY, 0, 0);
+			//camera.transform.Rotate(0, rotX, 0);
 			if (colls.Length > 1)
 			{
 				if (Input.GetKeyDown(KeyCode.LeftShift)) // выбор другой ближайшей цели, исключая текущую - левый шифт
@@ -66,7 +76,6 @@ public class TargetSystem : MonoBehaviour
 		{
 			currentTarget = null;
 		}
-
 		PlayerRotate();
 	}
 
