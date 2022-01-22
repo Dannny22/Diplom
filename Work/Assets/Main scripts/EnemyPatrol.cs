@@ -17,15 +17,25 @@ public class EnemyPatrol : MonoBehaviour
 
     public void TargetUpdate()
     {
+        StartCoroutine(LookAround());
         i = Random.Range(0, targets.Count);
+    }
+
+    private IEnumerator LookAround()
+    {
+        while (nav.transform.position == nav.pathEndPosition)
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("LookAround");
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void Update()
     {
         if (nav.transform.position == nav.pathEndPosition)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("walk");
             TargetUpdate();
+            gameObject.GetComponent<Animator>().SetTrigger("walk");
         }
         nav.SetDestination(targets[i].position);
     }
