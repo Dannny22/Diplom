@@ -18,12 +18,17 @@ public class CameraLootAt : MonoBehaviour
     void Update()
     {
         range = Vector3.Distance(Enemy.transform.position, transform.position);
-
-        if(Input.GetMouseButton(1) & range <= 15)
+        // Должно быть одинаковым с TargetSystem.Range
+        if(Input.GetKeyDown(KeyCode.Mouse1) & range <= 15)
         {
             cam1.active = false;
             cam2.active = true;
         }
-            
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) & range <= 15)
+        {
+            cam1.active = true;
+            cam2.active = false;
+        }
     }
 }
