@@ -14,22 +14,22 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && ispause == false)
         {
             ispause = true;
+            gameObject.GetComponent<PlayerControll>().enabled = false;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && ispause == true)
         {
             ispause = false;
+            gameObject.GetComponent<PlayerControll>().enabled = true;
         }
         if (ispause == true)
-        {
+        {          
             timer = 0;
             guipause = true;
-
         }
         else if (ispause == false)
         {
             timer = 1f;
             guipause = false;
-
         }
     }
     public void OnGUI()
