@@ -23,7 +23,8 @@ public class MissionBot : MonoBehaviour
         GameObject MissionTagScanner = GameObject.FindGameObjectWithTag("Player"); 
         if (Input.GetKeyDown(KeyCode.E) & Vector3.Distance(transform.position, MissionTagScanner.transform.position) < 2) 
         {
-            vis = true; 
+            vis = true;
+            Cursor.visible = true;
         }
     }
     void OnGUI()
@@ -40,7 +41,8 @@ public class MissionBot : MonoBehaviour
                     MP.quest = true; 
                     MP.MissionText = "Принести сферу"; 
                     MP.ObjectTag = missionTag; 
-                    vis = false; 
+                    vis = false;
+                    Cursor.visible = false;
                 }
             }
             else
@@ -57,14 +59,16 @@ public class MissionBot : MonoBehaviour
                         MP.ObjectTag = ""; 
                         MP.MissionObjects = false; 
                         MP.Money = MP.Money + 100; 
-                        vis = false; 
+                        vis = false;
+                        Cursor.visible = false;
                     }
                 }
                 else
                 { 
                     if (GUI.Button(new Rect((Screen.width - 100) / 2, (Screen.height - 300) / 2 + 250, 100, 40), "Нет")) 
                     {
-                        vis = false; 
+                        vis = false;
+                        Cursor.visible = false;
                     }
                 }
             }
