@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     //NavMeshAgent nav;
     //public float Radius = 15;
     public float HP = 100;
-    public GameObject Ragdoll;
+    //public GameObject Ragdoll;
     public Image UIHP;
     public Text UIHpText;
     public Text FireTimeUI;
@@ -111,8 +111,12 @@ public class Enemy : MonoBehaviour
         }
         if (HP <= 0)
         {
-            gameObject.SetActive(false);
-            Instantiate(Ragdoll, transform.position, transform.rotation);
+            gameObject.GetComponent<EnemyMovement>().enabled = false;
+            gameObject.GetComponent<EnemyPatrol>().enabled = false;
+            gameObject.GetComponent<Animator>().SetBool("Dead", true);
+            //gameObject.SetActive(false);
+            //gameObject.GetComponent<Animator>().SetBool("Dead", true);
+            //Instantiate(Ragdoll, transform.position, transform.rotation);
         }
     }
 
@@ -121,11 +125,13 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "PlayerSword" & Attack == true & isSuperCombo == true)
         {
+            gameObject.GetComponent<Animator>().SetTrigger("Hit");
             AddHit();
             HP = HP - 25f;
         }
         else if (other.tag == "PlayerSword" & Attack == true)
         {
+            gameObject.GetComponent<Animator>().SetTrigger("Hit");
             AddHit();
             HP = HP - 5f;
         }
@@ -135,6 +141,7 @@ public class Enemy : MonoBehaviour
             BurnTime = 10f;
             HP = HP - 20f;
             StartCoroutine(BurnDamage());
+            gameObject.GetComponent<Animator>().SetTrigger("Hit");
 
         }
         if (BurnTime <= 0f)
@@ -147,6 +154,7 @@ public class Enemy : MonoBehaviour
         {
             StunTime = 5f;
             StartCoroutine(Stunning());
+            gameObject.GetComponent<Animator>().SetTrigger("Hit");
             gameObject.GetComponent<Animator>().SetTrigger("stun");
             
             HP = HP - 20f;
