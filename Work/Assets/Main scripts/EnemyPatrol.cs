@@ -25,7 +25,10 @@ public class EnemyPatrol : MonoBehaviour
     {
         while (nav.transform.position == nav.pathEndPosition)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("LookAround");
+            gameObject.GetComponent<Animator>().SetBool("Walk2", false);
+            gameObject.GetComponent<Animator>().SetBool("Look", true);
+            //gameObject.GetComponent<Animator>().SetTrigger("LookAround");
+            //gameObject.GetComponent<Animator>().SetTrigger("walk");
             yield return new WaitForSeconds(1f);
         }
     }
@@ -35,7 +38,10 @@ public class EnemyPatrol : MonoBehaviour
         if (nav.transform.position == nav.pathEndPosition)
         {
             TargetUpdate();
-            gameObject.GetComponent<Animator>().SetTrigger("walk");
+            gameObject.GetComponent<Animator>().SetBool("Walk2", true);
+            gameObject.GetComponent<Animator>().SetBool("Look", false);
+            //gameObject.GetComponent<Animator>().SetTrigger("walk");
+            // gameObject.GetComponent<Animator>().SetTrigger("LookAround");
         }
         nav.SetDestination(targets[i].position);
     }
