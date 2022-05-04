@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 045edc282fa24c841929bba4421157a0
+guid: d0d54b952642e3f43b6fc011d5f37c64
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Run
+    second: standing_run
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: standing_run
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -55,7 +55,7 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
-      mirror: 0
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
