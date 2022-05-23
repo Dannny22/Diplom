@@ -6,26 +6,19 @@ using UnityEngine.UI;
 public class PlayerHeals : MonoBehaviour
 {
     public Image UIhp;
-    public float HP = 1f;
-    public GameObject Ragdoll;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float HP = 1f; 
+    public GameObject Control;
+ 
     void Update()
     {
 
         UIhp.fillAmount = HP;
 
         if (HP <= 0)
-        {
-            //gameObject.SetActive(false);
+        { 
             gameObject.GetComponent<Animator>().SetTrigger("dead");
-            //Instantiate(Ragdoll, transform.position, transform.rotation);
+            gameObject.GetComponent<PlayerLookAt>().enabled = false;
+            Control.GetComponent<PlayerHandler>().enabled = false; 
         }
 
     }

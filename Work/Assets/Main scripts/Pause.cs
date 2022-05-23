@@ -14,12 +14,12 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && ispause == false)
         {
             ispause = true;
-            gameObject.GetComponent<PlayerControll>().enabled = false;
+            gameObject.GetComponent<PlayerHandler>().enabled = false;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && ispause == true)
         {
             ispause = false;
-            gameObject.GetComponent<PlayerControll>().enabled = true;
+            gameObject.GetComponent<PlayerHandler>().enabled = true;
         }
         if (ispause == true)
         {          
@@ -42,6 +42,7 @@ public class Pause : MonoBehaviour
                 ispause = false;
                 timer = 0;
                 Cursor.visible = false;
+                gameObject.GetComponent<PlayerHandler>().enabled = true;
             }
             if (GUI.Button(new Rect((float)(Screen.width / 2), (float)(Screen.height / 2) - 100f, 150f, 45f), "Сохранить"))
             {

@@ -21,6 +21,7 @@ public class PlayerHandler : MonoBehaviour
     void Start()
     {
         //mainCamera = Camera.main;
+        Cursor.visible = false;
         Anim = Model.GetComponent<Animator>();
     }
 
