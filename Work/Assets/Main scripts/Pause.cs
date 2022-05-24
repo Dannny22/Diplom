@@ -28,6 +28,7 @@ public class Pause : MonoBehaviour
         }
         else if (ispause == false)
         {
+            Cursor.visible = false;
             timer = 1f;
             guipause = false;
         }
@@ -40,8 +41,7 @@ public class Pause : MonoBehaviour
             if (GUI.Button(new Rect((float)(Screen.width / 2), (float)(Screen.height / 2) - 150f, 150f, 45f), "Продолжить"))
             {
                 ispause = false;
-                timer = 0;
-                Cursor.visible = false;
+                timer = 0; 
                 gameObject.GetComponent<PlayerHandler>().enabled = true;
             }
             if (GUI.Button(new Rect((float)(Screen.width / 2), (float)(Screen.height / 2) - 100f, 150f, 45f), "Сохранить"))
