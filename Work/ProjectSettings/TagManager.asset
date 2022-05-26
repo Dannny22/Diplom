@@ -3,33 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - deadzone
-  - ground
-  - EnemySword
-  - PlayerSword
-  - Fire
-  - Skill1
-  - Skill2
-  - sphere
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
+  - 
+  - 
+  - Reflection_Probes
+  - Lighting
+  - Props
+  - ReflectedInWater
   - Ground
-  - Enemy
-  - sphere
+  - AccessibleVolume
+  - PostProcessing
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MainGround
   - 
   - 
   - 

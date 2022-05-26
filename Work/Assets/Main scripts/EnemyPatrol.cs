@@ -17,21 +17,21 @@ public class EnemyPatrol : MonoBehaviour
 
     public void TargetUpdate()
     {
-        StartCoroutine(LookAround());
+        //StartCoroutine(LookAround());
         i = Random.Range(0, targets.Count);
     }
 
-    private IEnumerator LookAround()
-    {
-        while (nav.transform.position == nav.pathEndPosition)
-        {
-            gameObject.GetComponent<Animator>().SetBool("Walk2", false);
-            gameObject.GetComponent<Animator>().SetBool("Look", true);
-            //gameObject.GetComponent<Animator>().SetTrigger("LookAround");
-            //gameObject.GetComponent<Animator>().SetTrigger("walk");
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    //private IEnumerator LookAround()
+    //{
+    //    while (nav.transform.position == nav.pathEndPosition)
+    //    {
+    //        gameObject.GetComponent<Animator>().SetBool("Walk2", false);
+    //        gameObject.GetComponent<Animator>().SetBool("Look", true);
+    //        //gameObject.GetComponent<Animator>().SetTrigger("LookAround");
+    //        //gameObject.GetComponent<Animator>().SetTrigger("walk");
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //}
 
     void Update()
     {
@@ -39,7 +39,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             TargetUpdate();
             gameObject.GetComponent<Animator>().SetBool("Walk2", true);
-            gameObject.GetComponent<Animator>().SetBool("Look", false);
+            //gameObject.GetComponent<Animator>().SetBool("Look", false);
             //gameObject.GetComponent<Animator>().SetTrigger("walk");
             // gameObject.GetComponent<Animator>().SetTrigger("LookAround");
         }

@@ -71,35 +71,7 @@ public class Enemy : MonoBehaviour
         UIHpText.text = "" + HP;
         UIHP.fillAmount = HP / 100;
         
-        //Player = GameObject.FindGameObjectWithTag("Player");
-        //dist = Vector3.Distance(Player.transform.position, transform.position);
-
-        //if (dist > Radius)
-        //{
-        //    //anim.SetBool("AttackEnemy", false);
-        //    nav.speed = 2;
-        //    gameObject.GetComponent<Animator>().SetTrigger("walk");
-        //    gameObject.GetComponent<EnemyPatrol>().enabled = true;
-        //    gameObject.GetComponent<Animator>().SetBool("run", false);
-        //}
-
-        //if (dist < Radius && dist > 1.5f)
-        //{
-
-        //    nav.speed = 5;
-        //    gameObject.GetComponent<EnemyPatrol>().enabled = false;
-        //    gameObject.GetComponent<Animator>().SetBool("run", true);
-        //    nav.enabled = true;
-        //    nav.SetDestination(Player.transform.position);
-        //}
-        //if (dist < 1f)
-        //{
-        //    gameObject.GetComponent<Animator>().SetTrigger("attack");
-        //    nav.enabled = false;
-        //    AttackEnemy = true;
-        //    Invoke("DiactivetAttack", 1f);
-
-        //}
+       
         if (isSuperCombo)
         {
             powerUpResetTimer -= Time.deltaTime;
@@ -155,10 +127,8 @@ public class Enemy : MonoBehaviour
             StunTime = 5f;
             StartCoroutine(Stunning());
             gameObject.GetComponent<Animator>().SetTrigger("Hit");
-            gameObject.GetComponent<Animator>().SetTrigger("stun");
-            
+            gameObject.GetComponent<Animator>().SetTrigger("stun");       
             HP = HP - 20f;
-            
         }
         if (StunTime <= 0f)
         {
