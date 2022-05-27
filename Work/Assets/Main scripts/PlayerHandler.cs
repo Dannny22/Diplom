@@ -55,7 +55,7 @@ public class PlayerHandler : MonoBehaviour
         Anim.SetFloat("Vertical", StickDirection.z);
         IsWeaponEquipped = Anim.GetBool("IsWeaponEquipped");
         IsTargetLocked = Anim.GetBool("IsTargetLocked");
-        if(IsWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
+        if (IsWeaponEquipped && Input.GetKeyDown(KeyCode.T))
         {
             Anim.SetBool("IsTargetLocked", !IsTargetLocked);
             IsTargetLocked = !IsTargetLocked;
@@ -64,11 +64,15 @@ public class PlayerHandler : MonoBehaviour
         {
             Anim.SetBool("IsWeaponEquipped", !IsWeaponEquipped);
             IsWeaponEquipped = !IsWeaponEquipped;
-            if(IsWeaponEquipped == false)
+            if (IsWeaponEquipped == false)
             {
                 Anim.SetBool("IsTargetLocked", false);
                 IsTargetLocked = false;
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Anim.SetTrigger("Jump");
         }
     }
 }
