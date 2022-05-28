@@ -18,7 +18,8 @@ public class PlayerHeals : MonoBehaviour
         { 
             gameObject.GetComponent<Animator>().SetTrigger("dead");
             gameObject.GetComponent<PlayerLookAt>().enabled = false;
-            Control.GetComponent<PlayerHandler>().enabled = false; 
+            Control.GetComponent<PlayerHandler>().enabled = false;
+            gameObject.GetComponent<PlayerSkills>().enabled = false;
         }
 
     }

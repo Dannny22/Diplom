@@ -74,5 +74,14 @@ public class PlayerHandler : MonoBehaviour
         {
             Anim.SetTrigger("Jump");
         }
+        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Anim.SetBool("CrouchIdle", true);
+            Anim.SetTrigger("Roll");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Anim.SetBool("CrouchIdle", false);
+        } 
     }
 }
