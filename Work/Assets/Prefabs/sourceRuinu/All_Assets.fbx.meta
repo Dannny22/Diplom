@@ -21,7 +21,12 @@ ModelImporter:
   - first:
       74: 4803367874958359563
     second: Base wall|CameraAction.003
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks
+    second: {fileID: 2100000, guid: d0e13d80493dd394c909f56e9ac472a6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

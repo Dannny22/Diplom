@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoCache
 {
 
     //public GameObject Player;
@@ -65,13 +65,13 @@ public class Enemy : MonoBehaviour
         }
         lastHitTime = Time.time;
     }
-    // Update is called once per frame
-    void Update()
+
+    public override void OnTick()
     {
         UIHpText.text = "" + HP;
         UIHP.fillAmount = HP / 100;
-        
-       
+
+
         if (isSuperCombo)
         {
             powerUpResetTimer -= Time.deltaTime;
@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
             //gameObject.GetComponent<Animator>().SetBool("Dead", true);
             //Instantiate(Ragdoll, transform.position, transform.rotation);
         }
-    }
+    } 
 
 
     void OnTriggerEnter(Collider other)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHandler : MonoBehaviour
+public class PlayerHandler : MonoCache
 {
     public Transform Model;
 
@@ -26,13 +26,13 @@ public class PlayerHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void OnTick()
     {
         StickDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         HandleInputData();
         if (IsTargetLocked) HandleTargetLockedLocomotionRotation();
         else HandleStandardLocomotionRotation();
-    }
+    } 
 
     private void HandleStandardLocomotionRotation()
     {

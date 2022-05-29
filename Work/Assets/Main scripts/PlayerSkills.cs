@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerSkills : MonoBehaviour
+public class PlayerSkills : MonoCache
 {
     public GameObject Skill1;
     public GameObject Skill2;
@@ -13,15 +13,9 @@ public class PlayerSkills : MonoBehaviour
     public Image UIMana;
     public int time = 0;
     public Text UISkill1Time;
-    public Text UISkill2Time;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Text UISkill2Time; 
 
-    // Update is called once per frame
-    void Update()
+    public override void OnTick()
     {
         UIMana.fillAmount = Mana;
         Mana += Time.deltaTime / 25f;
@@ -55,7 +49,7 @@ public class PlayerSkills : MonoBehaviour
         {
             UISkill2Time.gameObject.SetActive(false);
         }
-    }
+    } 
     private IEnumerator Skill1Time()
     {
         while (CountdownSkill1 > 0)

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pause : MonoBehaviour
+public class Pause : MonoCache
 {
     public float timer;
     public bool ispause;
     public bool guipause;
 
-    void Update()
+    public override void OnTick()
     {
         Time.timeScale = timer;
         if (Input.GetKeyDown(KeyCode.Escape) && ispause == false)
@@ -22,7 +22,7 @@ public class Pause : MonoBehaviour
             gameObject.GetComponent<PlayerHandler>().enabled = true;
         }
         if (ispause == true)
-        {          
+        {
             timer = 0;
             guipause = true;
         }
@@ -32,7 +32,7 @@ public class Pause : MonoBehaviour
             timer = 1f;
             guipause = false;
         }
-    }
+    } 
     public void OnGUI()
     {
         if (guipause == true)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol : MonoCache
 {
     NavMeshAgent nav;
     public List<Transform> targets;
@@ -32,8 +32,7 @@ public class EnemyPatrol : MonoBehaviour
     //        yield return new WaitForSeconds(1f);
     //    }
     //}
-
-    void Update()
+    public override void OnTick()
     {
         if (nav.transform.position == nav.pathEndPosition)
         {
@@ -45,4 +44,5 @@ public class EnemyPatrol : MonoBehaviour
         }
         nav.SetDestination(targets[i].position);
     }
+     
 }

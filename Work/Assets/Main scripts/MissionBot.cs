@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MissionBot : MonoBehaviour
+public class MissionBot : MonoCache
 
 {
 
@@ -17,16 +17,15 @@ public class MissionBot : MonoBehaviour
         MP = GameObject.FindGameObjectWithTag("Player").GetComponent<MissionPlayer>(); 
     }
 
-    void Update()
-
+    public override void OnTick()
     {
-        GameObject MissionTagScanner = GameObject.FindGameObjectWithTag("Player"); 
-        if (Input.GetKeyDown(KeyCode.E) & Vector3.Distance(transform.position, MissionTagScanner.transform.position) < 2) 
+        GameObject MissionTagScanner = GameObject.FindGameObjectWithTag("Player");
+        if (Input.GetKeyDown(KeyCode.E) & Vector3.Distance(transform.position, MissionTagScanner.transform.position) < 2)
         {
             vis = true;
             Cursor.visible = true;
         }
-    }
+    } 
     void OnGUI()
     {
         if (vis) 

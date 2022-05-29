@@ -3,7 +3,17 @@ guid: b11036b88c702534992571d62570f3e9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UV
+    second: {fileID: 2100000, guid: a12d40640c4c9af408b1d5b2ab4a2c55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone rooff.001
+    second: {fileID: 2100000, guid: 2b764ba5943004342bb9ff922e63c980, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

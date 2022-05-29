@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoCache
 {
     public CharacterController controller;
     public GameObject Player;
@@ -21,14 +21,14 @@ public class EnemyMovement : MonoBehaviour
         Enemy.AttackEnemy = false;
     }
 
-    void Update()
+    public override void OnTick()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
 
         if (dist > Radius)
         {
-            
+
             nav.speed = 2;
             gameObject.GetComponent<Animator>().SetTrigger("walk");
             gameObject.GetComponent<EnemyPatrol>().enabled = true;
@@ -52,6 +52,6 @@ public class EnemyMovement : MonoBehaviour
             Enemy.AttackEnemy = true;
             Invoke("DiactivetAttack", 1f);
         }
-        
     }
+     
 }

@@ -3,7 +3,27 @@ guid: 35b9f07635f81774fbfc694af9ff5dea
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round old pillar 1
+    second: {fileID: 2100000, guid: 909b94f3b8162834ead9e5bf783560dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round old pillar 2
+    second: {fileID: 2100000, guid: ee6e783eeb7aa9948a80f1fbc8848f81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round old pillar 3
+    second: {fileID: 2100000, guid: ab98d48402609b845bd3f6a195da4522, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round old pillar 4
+    second: {fileID: 2100000, guid: 8705b025c10b66843b7fe93e8ac73ae4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

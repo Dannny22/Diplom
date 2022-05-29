@@ -3,7 +3,27 @@ guid: d9d2fbe1da02d2646a10f1586449a484
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: b334ed4d343eec14eb11d46102dafd28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bronze
+    second: {fileID: 2100000, guid: debc23d1c740108448e6425321340fc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillars
+    second: {fileID: 2100000, guid: 0943440de1cee8647a458293dbe5aa91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: cc10d447650a02f45ad45ee53353244b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
