@@ -3,7 +3,97 @@ guid: b6f0534ded8e10344a3e0c7f519e607b
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Derevo_altar_polySurface1Mat
+    second: {fileID: 2100000, guid: 5c919f22ae462364b86f4155d1846c85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Derevo_altar_polySurface4Mat
+    second: {fileID: 2100000, guid: 945d3dae67db51c46858c780cb646af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Derevo_altar_polySurface5Mat
+    second: {fileID: 2100000, guid: df9bc362567fca1419a5ef81803f2ec4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane10Mat
+    second: {fileID: 2100000, guid: 6ed44b9cea383194c87e454727bd519c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane11Mat
+    second: {fileID: 2100000, guid: 911ab52b5f5bd6748824fc18d44e051a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane12Mat
+    second: {fileID: 2100000, guid: 5394da98ffa9b9b4f89c64562fe8b2a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane13Mat
+    second: {fileID: 2100000, guid: c85c2513f9b2ad34eae37c0727209163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane14Mat
+    second: {fileID: 2100000, guid: 3239fef810a46d243866059c3b895d15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane15Mat
+    second: {fileID: 2100000, guid: 78bdcce5b17649247b052f14e4043a59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane16Mat
+    second: {fileID: 2100000, guid: 7527abf9280c3d742ac0f6b62d73ce47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane17Mat
+    second: {fileID: 2100000, guid: b690599a178074648845f43adfad99f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane18Mat
+    second: {fileID: 2100000, guid: 00027c8f15b77104f840143e1e4f709d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane19Mat
+    second: {fileID: 2100000, guid: b01efb10d154bfd46903f71cd68754ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane5Mat
+    second: {fileID: 2100000, guid: 1e68a93683322864783a10129ba2cdf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane6Mat
+    second: {fileID: 2100000, guid: 8c191f1a9d5677c4d943fc1548275716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane7Mat
+    second: {fileID: 2100000, guid: 01c0ecf198a1a45489db1495dd89098a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane8Mat
+    second: {fileID: 2100000, guid: eaed0d3c3b7c94944bb722b777f20fc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pPlane9Mat
+    second: {fileID: 2100000, guid: 384ebae7edd92544caef22aa0d75b07c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
