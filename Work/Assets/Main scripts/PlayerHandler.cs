@@ -76,12 +76,20 @@ public class PlayerHandler : MonoCache
         }
         else if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            Anim.SetBool("CrouchIdle", true);
-            Anim.SetTrigger("Roll");
+            Anim.SetBool("CrouchIdle", true); 
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             Anim.SetBool("CrouchIdle", false);
-        } 
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            Anim.SetTrigger("Roll");
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Enemy.Attack = true;
+            Anim.SetTrigger("Attack");
+        }
     }
 }
