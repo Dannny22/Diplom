@@ -45,7 +45,7 @@ public class EnemyMovement : MonoCache
             nav.SetDestination(Player.transform.position);
         }
 
-        if (dist < 1f)
+        if (dist < 2f)
         {
             gameObject.GetComponent<Animator>().SetTrigger("attack");
             nav.enabled = false;
