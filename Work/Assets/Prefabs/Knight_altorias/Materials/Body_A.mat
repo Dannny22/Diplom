@@ -10,7 +10,7 @@ Material:
   m_Name: Body_A
   m_Shader: {fileID: 14002, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
-  - _WINDQUALITY_NONE
+  - _WINDQUALITY_FASTEST
   m_InvalidKeywords:
   - _NORMALMAP
   m_LightmapFlags: 4
@@ -90,7 +90,7 @@ Material:
     - _SubsurfaceKwToggle: 0
     - _TwoSided: 0
     - _UVSec: 0
-    - _WindQuality: 0
+    - _WindQuality: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
