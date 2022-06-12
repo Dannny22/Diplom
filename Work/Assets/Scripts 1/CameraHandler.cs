@@ -30,7 +30,7 @@ namespace SG
         public float cameraSphereRadius = 0.2f;
         public float cameraCollisionOffSet = 0.2f;
         public float minimumCollisionOffset = 0.2f;
-
+        
 
         private void Awake()
         {
