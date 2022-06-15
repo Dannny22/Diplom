@@ -34,12 +34,13 @@ public class EnemyPatrol : MonoCache
     //}
     public override void OnTick()
     {
+
         if (nav.transform.position == nav.pathEndPosition)
         {
             TargetUpdate();
-            gameObject.GetComponent<Animator>().SetBool("Walk2", true);
+            //gameObject.GetComponent<Animator>().SetBool("Walk2", true);
             //gameObject.GetComponent<Animator>().SetBool("Look", false);
-            //gameObject.GetComponent<Animator>().SetTrigger("walk");
+            gameObject.GetComponent<Animator>().SetTrigger("walk");
             // gameObject.GetComponent<Animator>().SetTrigger("LookAround");
         }
         nav.SetDestination(targets[i].position);
