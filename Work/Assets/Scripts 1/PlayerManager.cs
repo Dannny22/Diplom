@@ -32,17 +32,20 @@ namespace SG
 
         void Update()
         {
+
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
-            
+
             inputHandler.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+           
         }
 
         private void FixedUpdate()
         {
+            
             float delta = Time.fixedDeltaTime;
 
             if (cameraHandler != null)
@@ -54,6 +57,7 @@ namespace SG
 
         private void LateUpdate()
         {
+            
             inputHandler.rollFlag = false;
             inputHandler.sprintFlag = false;
             inputHandler.rb_Input = false;
