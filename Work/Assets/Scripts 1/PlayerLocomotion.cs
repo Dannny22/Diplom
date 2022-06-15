@@ -32,6 +32,8 @@ namespace SG
 
         [Header("Movement Stats")]
         [SerializeField]
+        float walkingSpeed = 1;
+        [SerializeField]
         float movementSpeed = 5;
         [SerializeField]
         float sprintSpeed = 7;
@@ -99,7 +101,7 @@ namespace SG
 
             float speed = movementSpeed;
 
-            if (inputHandler.sprintFlag)
+            if (inputHandler.sprintFlag && inputHandler.moveAmount > 0.5)
             {
                 speed = sprintSpeed;
                 playerManager.isSprinting = true;
@@ -107,7 +109,16 @@ namespace SG
             }
             else
             {
-                moveDirection *= speed;
+                if (inputHandler.moveAmount < 0.5)
+                {
+                    moveDirection *= walkingSpeed;
+                    playerManager.isSprinting = false;
+                }
+                else
+                {
+                    moveDirection *= speed;
+                    playerManager.isSprinting = false;
+                }
             }
 
             Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
