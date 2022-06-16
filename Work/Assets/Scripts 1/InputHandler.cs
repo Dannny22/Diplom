@@ -18,6 +18,7 @@ namespace SG
 
         public bool rollFlag;
         public bool sprintFlag;
+        public bool comboFlag;
         public float rollInputTimer;
 
         PlayerControls inputActions;
@@ -98,7 +99,16 @@ namespace SG
 
             if (rb_Input)
             {
-                playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+                if (playerManager.canDoCombo)
+                {
+                    comboFlag = true;
+                    playerAttacker.HandleWeaponCombo(playerInventory.rightWeapon);
+                    comboFlag = false;
+                }
+                else
+                {
+                    playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+                }
             }
 
             if (rt_Input)

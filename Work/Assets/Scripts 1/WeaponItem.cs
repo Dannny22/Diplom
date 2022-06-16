@@ -11,7 +11,8 @@ namespace SG
         public bool isUnarmed;
 
         [Header("One Handed Attack Animations")]
-        public string OH_Light_Attack_1;
-        public string OH_Heavy_Attack_1;
+        public string oh_light_attack_01;
+        public string oh_heavy_attack_01;
+        public string oh_light_attack_02;
     }
 }

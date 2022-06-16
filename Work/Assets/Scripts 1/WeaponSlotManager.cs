@@ -40,7 +40,7 @@ namespace SG
                 LoadRightWeaponDamageCollider();
             }
         }
-
+         
         #region Handle Weapon`s Damage Collider
 
         private void LoadRightWeaponDamageCollider()
