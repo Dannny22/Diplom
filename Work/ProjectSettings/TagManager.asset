@@ -10,6 +10,8 @@ TagManager:
   - Skill1
   - Skill2
   - sphere
+  - Hittable
+  - Enemy
   layers:
   - Default
   - TransparentFX

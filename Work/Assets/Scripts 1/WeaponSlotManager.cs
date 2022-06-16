@@ -9,6 +9,8 @@ namespace SG
         WeaponHolderSlot leftHandSlot;
         WeaponHolderSlot rightHandSlot;
 
+        DamageCollider rightHandDamageCollider;
+
         private void Awake()
         {
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
@@ -21,6 +23,7 @@ namespace SG
                 if (weaponSlot.isRightHandSlot)
                 {
                     rightHandSlot = weaponSlot;
+                    LoadRightWeaponDamageCollider();
                 }
             }
         }
@@ -34,7 +37,27 @@ namespace SG
             if (true)
             {
                 rightHandSlot.LoadWeaponModel(weaponItem);
+                LoadRightWeaponDamageCollider();
             }
         }
+
+        #region Handle Weapon`s Damage Collider
+
+        private void LoadRightWeaponDamageCollider()
+        {
+            rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
+        }
+
+        public void OpenRightDamageCollider()
+        {
+            rightHandDamageCollider.EnableDamageCollider();
+        }
+
+        public void CloseRightHandDamageCollider()
+        {
+            rightHandDamageCollider.DisaleDamageCollider();
+        }
+
+        #endregion
     }
 }

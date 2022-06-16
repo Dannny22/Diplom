@@ -38,6 +38,7 @@ namespace SG
             myTransform = transform;
             defaultPosition = cameraTransform.localPosition.z;
             ignoreLayers = ~(1 << 17 | 1 << 18 | 1 << 19);
+            targetTransform = FindObjectOfType<PlayerManager>().transform;
         }
 
         public void FollowTarget(float delta)
