@@ -166,6 +166,7 @@ namespace SG
                 {
                     cameraHandler.currentLockOnTarget = cameraHandler.rightLockTarget;
                 }
+
             }
 
             cameraHandler.SetCameraHeight();
