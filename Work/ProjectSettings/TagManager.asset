@@ -12,6 +12,7 @@ TagManager:
   - sphere
   - Hittable
   - Enemy
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
