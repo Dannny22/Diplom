@@ -51,9 +51,10 @@ public class EnemyMovement : MonoBehaviour
             nav.SetDestination(Player.transform.position);
         }
 
-        if (dist < 2f)
+        if (dist < 1.5f)
         {
             anim.SetTrigger("attack");
+            anim.SetBool("run", false);
             nav.enabled = false;
             Enemy.AttackEnemy = true;
             Invoke("DiactivetAttack", 1f);
