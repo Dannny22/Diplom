@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoCache
+public class EnemyMovement : MonoBehaviour
 {
+    Animator anim;
     public CharacterController controller;
     public GameObject Player;
     public float dist;
@@ -16,6 +17,7 @@ public class EnemyMovement : MonoCache
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void DiactivetAttack()
@@ -23,7 +25,7 @@ public class EnemyMovement : MonoCache
         Enemy.AttackEnemy = false;
     }
 
-    public override void OnTick()
+    public void Update()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         dist = Vector3.Distance(Player.transform.position, transform.position);
@@ -33,9 +35,9 @@ public class EnemyMovement : MonoCache
             battleMusic.SetActive(false);
             backMusic.SetActive(true);
             nav.speed = 2;
-            gameObject.GetComponent<Animator>().SetTrigger("walk");
+            anim.SetTrigger("walk");
             gameObject.GetComponent<EnemyPatrol>().enabled = true;
-            gameObject.GetComponent<Animator>().SetBool("run", false);
+            anim.SetBool("run", false);
         }
 
         if (dist < Radius && dist > 1.5f)
@@ -44,14 +46,14 @@ public class EnemyMovement : MonoCache
             backMusic.SetActive(false);
             nav.speed = 5;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
-            gameObject.GetComponent<Animator>().SetBool("run", true);
+            anim.SetBool("run", true);
             nav.enabled = true;
             nav.SetDestination(Player.transform.position);
         }
 
         if (dist < 2f)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("attack");
+            anim.SetTrigger("attack");
             nav.enabled = false;
             Enemy.AttackEnemy = true;
             Invoke("DiactivetAttack", 1f);

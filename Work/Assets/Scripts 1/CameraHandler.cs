@@ -173,12 +173,12 @@ namespace SG
                         }
                     }
                 }
-                //else
-                //{
+                else
+                {
+                    inputHandler.lockOnInput = false;
+                    inputHandler.lockOnFlag = false;
 
-                //    inputHandler.lockOnFlag = false;
-                    
-                //}
+                }
             }
 
             for (int k = 0; k < availableTargets.Count; k++)
@@ -223,20 +223,20 @@ namespace SG
             currentLockOnTarget = null;
         }
 
-        public void SetCameraHeight()
-        {
-            Vector3 velocity = Vector3.zero;
-            Vector3 newLockedPosition = new Vector3(0, lockedPivotPosition);
-            Vector3 newUnlockedPosition = new Vector3(0, unlockedPivotPosition);
+        //public void SetCameraHeight()
+        //{
+        //    Vector3 velocity = Vector3.zero;
+        //    Vector3 newLockedPosition = new Vector3(0, lockedPivotPosition);
+        //    Vector3 newUnlockedPosition = new Vector3(0, unlockedPivotPosition);
 
-            if (currentLockOnTarget != null)
-            {
-                cameraPivotTransform.transform.localPosition = Vector3.SmoothDamp(cameraPivotTransform.transform.localPosition, newLockedPosition, ref velocity, Time.deltaTime);
-            }
-            else
-            {
-                cameraPivotTransform.transform.localPosition = Vector3.SmoothDamp(cameraPivotTransform.transform.localPosition, newUnlockedPosition, ref velocity, Time.deltaTime);
-            }
-        }
+        //    if (currentLockOnTarget != null)
+        //    {
+        //        cameraPivotTransform.transform.localPosition = Vector3.SmoothDamp(cameraPivotTransform.transform.localPosition, newLockedPosition, ref velocity, Time.deltaTime);
+        //    }
+        //    else
+        //    {
+        //        cameraPivotTransform.transform.localPosition = Vector3.SmoothDamp(cameraPivotTransform.transform.localPosition, newUnlockedPosition, ref velocity, Time.deltaTime);
+        //    }
+        //}
     }
 }

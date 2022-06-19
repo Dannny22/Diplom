@@ -169,7 +169,7 @@ namespace SG
 
             }
 
-            cameraHandler.SetCameraHeight();
+            //cameraHandler.SetCameraHeight();
         }
     }
 }

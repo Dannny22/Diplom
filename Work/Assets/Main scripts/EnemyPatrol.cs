@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyPatrol : MonoCache
 {
+    Animator anim;
     NavMeshAgent nav;
     public List<Transform> targets;
     int i;
@@ -12,6 +13,7 @@ public class EnemyPatrol : MonoCache
 
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         nav = GetComponent<NavMeshAgent>();
     }
 
@@ -40,7 +42,7 @@ public class EnemyPatrol : MonoCache
             TargetUpdate();
             //gameObject.GetComponent<Animator>().SetBool("Walk2", true);
             //gameObject.GetComponent<Animator>().SetBool("Look", false);
-            gameObject.GetComponent<Animator>().SetTrigger("walk");
+            anim.SetTrigger("walk");
             // gameObject.GetComponent<Animator>().SetTrigger("LookAround");
         }
         nav.SetDestination(targets[i].position);

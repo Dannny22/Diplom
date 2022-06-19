@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 
 
-public class Enemy : MonoCache
+public class Enemy : MonoBehaviour
 {
 
     //public GameObject Player;
@@ -24,7 +24,7 @@ public class Enemy : MonoCache
     public float BurnTime = 0f;
     public float StunTime = 0f;
     //PlayerControll playercontroll = new PlayerControll();
-    //public Animator anim;
+    public Animator anim;
     public static bool Attack;
     public static bool AttackEnemy;
 
@@ -40,6 +40,7 @@ public class Enemy : MonoCache
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         //nav = GetComponent<NavMeshAgent>();
     }
 
@@ -66,7 +67,7 @@ public class Enemy : MonoCache
         lastHitTime = Time.time;
     }
 
-    public override void OnTick()
+    public void Update()
     {
         UIHpText.text = "" + HP;
         UIHP.fillAmount = HP / 100;
@@ -85,7 +86,7 @@ public class Enemy : MonoCache
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
-            gameObject.GetComponent<Animator>().SetBool("Dead", true);
+            anim.SetBool("Dead", true);
             //gameObject.SetActive(false);
             //gameObject.GetComponent<Animator>().SetBool("Dead", true);
             //Instantiate(Ragdoll, transform.position, transform.rotation);
@@ -97,13 +98,13 @@ public class Enemy : MonoCache
     {
         if (other.tag == "PlayerSword" & Attack == true & isSuperCombo == true)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            anim.SetTrigger("Hit");
             AddHit();
             HP = HP - 25f;
         }
         else if (other.tag == "PlayerSword" & Attack == true)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            anim.SetTrigger("Hit");
             AddHit();
             HP = HP - 5f;
         }
@@ -113,7 +114,7 @@ public class Enemy : MonoCache
             BurnTime = 10f;
             HP = HP - 20f;
             StartCoroutine(BurnDamage());
-            gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            anim.SetTrigger("Hit");
 
         }
         if (BurnTime <= 0f)
@@ -126,8 +127,8 @@ public class Enemy : MonoCache
         {
             StunTime = 5f;
             StartCoroutine(Stunning());
-            gameObject.GetComponent<Animator>().SetTrigger("Hit");
-            gameObject.GetComponent<Animator>().SetTrigger("stun");       
+            anim.SetTrigger("Hit");
+            anim.SetTrigger("stun");       
             HP = HP - 20f;
         }
         if (StunTime <= 0f)
