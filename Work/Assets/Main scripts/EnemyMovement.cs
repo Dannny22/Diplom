@@ -10,7 +10,9 @@ public class EnemyMovement : MonoCache
     public float dist;
     NavMeshAgent nav;
     public float Radius = 15;
-   
+    public GameObject battleMusic;
+    public GameObject backMusic;
+
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -28,7 +30,8 @@ public class EnemyMovement : MonoCache
 
         if (dist > Radius)
         {
-
+            battleMusic.SetActive(false);
+            backMusic.SetActive(true);
             nav.speed = 2;
             gameObject.GetComponent<Animator>().SetTrigger("walk");
             gameObject.GetComponent<EnemyPatrol>().enabled = true;
@@ -37,7 +40,8 @@ public class EnemyMovement : MonoCache
 
         if (dist < Radius && dist > 1.5f)
         {
-
+            battleMusic.SetActive(true);
+            backMusic.SetActive(false);
             nav.speed = 5;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
             gameObject.GetComponent<Animator>().SetBool("run", true);

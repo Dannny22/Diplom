@@ -12,6 +12,7 @@ namespace SG
         [SerializeField] List<GameObject> checkPoints;
 
         public Vector3 spawnPoint;
+        public AudioSource checkPointSound;
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +30,7 @@ namespace SG
         {
             if (other.gameObject.CompareTag("CheckPoint"))
             {
+                checkPointSound.Play();
                 spawnPoint = player.transform.position;
             }
         }

@@ -13,7 +13,9 @@ public class PlayerSkills : MonoCache
     public Image UIMana;
     public int time = 0;
     public Text UISkill1Time;
-    public Text UISkill2Time; 
+    public Text UISkill2Time;
+    public AudioSource Skill1Sound;
+    public AudioSource Skill2Sound;
 
     public override void OnTick()
     {
@@ -25,7 +27,7 @@ public class PlayerSkills : MonoCache
         }
         if (Input.GetKeyDown(KeyCode.Alpha1) & CountdownSkill1 <= 0 & Mana >= 0.25f)
         {
-
+            Skill1Sound.Play();
             Instantiate(Skill1, transform.position, transform.rotation);
             CountdownSkill1 = 6f;
             Mana = Mana - 0.25f;
@@ -40,6 +42,7 @@ public class PlayerSkills : MonoCache
 
         if (Input.GetKeyDown(KeyCode.Alpha2) & CountdownSkill2 <= 0 & Mana >= 0.5f)
         {
+            Skill2Sound.Play();
             Instantiate(Skill2, transform.position, transform.rotation);
             CountdownSkill2 = 11f;
             Mana = Mana - 0.5f;

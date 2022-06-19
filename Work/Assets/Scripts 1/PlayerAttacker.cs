@@ -9,6 +9,7 @@ namespace SG
         AnimatorHandler animatorHandler;
         InputHandler inputHandler;
         public string lastAttack;
+        public AudioSource bladeSound;
 
         private void Awake()
         {
@@ -33,12 +34,16 @@ namespace SG
         {
             animatorHandler.PlayTargetAnimation(weapon.oh_light_attack_01, true);
             lastAttack = weapon.oh_light_attack_01;
+            bladeSound.pitch = Random.Range(0.8f, 1.1f);
+            bladeSound.Play();
         }
 
         public void HandleHeavyAttack(WeaponItem weapon)
         {
             animatorHandler.PlayTargetAnimation(weapon.oh_light_attack_01, true);
             lastAttack = weapon.oh_light_attack_01;
+            bladeSound.pitch = Random.Range(0.8f, 1.1f);
+            bladeSound.Play();
         }
     }
 }

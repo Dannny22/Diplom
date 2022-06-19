@@ -79,8 +79,8 @@ namespace SG
             {
                 v = 2;
                 h = horizontalMovement;
-            }
 
+            }
             anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
             anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
         }

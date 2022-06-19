@@ -43,6 +43,7 @@ namespace SG
         [SerializeField]
         float fallingSpeed = 45;
 
+
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
@@ -145,6 +146,7 @@ namespace SG
                 speed = sprintSpeed;
                 playerManager.isSprinting = true;
                 moveDirection *= speed;
+                
             }
             else
             {
