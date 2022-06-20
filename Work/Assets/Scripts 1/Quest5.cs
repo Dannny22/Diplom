@@ -44,7 +44,7 @@ public class Quest5 : MonoBehaviour
                     Cursor.visible = false;
                     dialog = false;
                     questsManager.fifthDialog = true;
-                    questsManager.Deadboss1 = false;
+                    questsManager.Deadboss2 = false;
                     questsManager.MissionText = "Завдання: Йди до ферми";
                     //dialog = true;
                     //GUI.Box(new Rect((Screen.width - 1200) / 2, (Screen.height - 600) / 2, 1200, 600), "Квест");

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MiniBoss : MonoBehaviour
 {
+    Quests questsManager;
     //public GameObject Player;
     //public float dist;
     //NavMeshAgent nav;
@@ -37,6 +38,7 @@ public class MiniBoss : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        questsManager = GameObject.FindGameObjectWithTag("Quests").GetComponent<Quests>();
         //nav = GetComponent<NavMeshAgent>();
         //enemyMovement = GetComponent<EnemyMovement>();
     }
@@ -83,6 +85,9 @@ public class MiniBoss : MonoBehaviour
         {
             gameObject.GetComponent<MiniBossMovement>().enabled = false;
             anim.SetBool("Dead", true);
+            Destroy(gameObject);
+            questsManager.Deadboss1 = true;
+            questsManager.Deadboss2 = true;
             //enemyMovement.battleMusic.SetActive(false);
             //enemyMovement.backMusic.SetActive(true);
             //gameObject.SetActive(false);

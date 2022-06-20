@@ -10,6 +10,9 @@ public class Quest6 : MonoBehaviour
     public string missionText;
     public string missionTag;
     private MissionPlayer MP;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
 
     void Start()
     {
@@ -42,10 +45,13 @@ public class Quest6 : MonoBehaviour
                     "                                                                                                                               -Кортез:  Бачишь цього вовка, його прогнав із логова Темний мечник. Якщо ти допоможешь цьому вовку я допоможу тобі.");
                 if (GUI.Button(new Rect((Screen.width - 100) / 2, (Screen.height - 300) / 2 + 250, 100, 40), "Домовились"))
                 {
+                    Enemy1.SetActive(true);
+                    Enemy2.SetActive(true);
+                    Enemy3.SetActive(true);
                     Time.timeScale = 1f;
                     dialog = false;
                     questsManager.sixthDialog = true;
-                    questsManager.Deadboss1 = false;
+                    questsManager.Deadboss2 = false;
                     questsManager.MissionText = "Завдання: Здолати Темного мечника";
                     //dialog = true;
                     //GUI.Box(new Rect((Screen.width - 1200) / 2, (Screen.height - 600) / 2, 1200, 600), "Квест");

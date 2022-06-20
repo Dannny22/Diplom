@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
             anim.SetBool("Dead", true);
+            Destroy(gameObject);
             //enemyMovement.battleMusic.SetActive(false);
             //enemyMovement.backMusic.SetActive(true);
             //gameObject.SetActive(false);
@@ -109,13 +110,13 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerSword" & Attack == true /*& isSuperCombo == true*/)
+        if (other.tag == "PlayerSword"  /*& isSuperCombo == true*/)
         {
             anim.SetTrigger("Hit");
             //AddHit();
             HP = HP - 25f;
         }
-        else if (other.tag == "PlayerSword" & Attack == true)
+        else if (other.tag == "PlayerSword")
         {
             anim.SetTrigger("Hit");
             //AddHit();

@@ -10,6 +10,9 @@ public class Quest7 : MonoBehaviour
     public string missionText;
     public string missionTag;
     private MissionPlayer MP;
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
 
     void Start()
     {
@@ -40,6 +43,9 @@ public class Quest7 : MonoBehaviour
                     "                                                                                                                              -Кортез: Справді ? Дякую тобі. Я добре знаю Райгана, якось він прийшов до мене і сказав що збирається очистити руїни від нежиті, після того я його більше не зустрічав, сподіваюсь з ним все гаразд");
                 if (GUI.Button(new Rect((Screen.width - 100) / 2, (Screen.height - 300) / 2 + 250, 100, 40), "Зрозумів"))
                 {
+                    Enemy1.SetActive(true);
+                    Enemy2.SetActive(true);
+                    Enemy3.SetActive(true);
                     Time.timeScale = 1f;
                     dialog = false;
                     questsManager.seventhDialog = true;
