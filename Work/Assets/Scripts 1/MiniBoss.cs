@@ -9,7 +9,7 @@ public class MiniBoss : MonoBehaviour
     //public float dist;
     //NavMeshAgent nav;
     //public float Radius = 15;
-    public float HP = 100;
+    public float HP = 200;
     //public GameObject Ragdoll;
     //public Image UIHP;
     //public Text UIHpText;
@@ -23,6 +23,7 @@ public class MiniBoss : MonoBehaviour
     public Animator anim;
     public static bool Attack;
     public static bool AttackEnemy;
+    public MiniBossMovement miniBossMovement;
     //EnemyMovement enemyMovement;
 
     //public bool isSuperCombo;
@@ -39,6 +40,7 @@ public class MiniBoss : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         questsManager = GameObject.FindGameObjectWithTag("Quests").GetComponent<Quests>();
+        miniBossMovement = GetComponent<MiniBossMovement>();
         //nav = GetComponent<NavMeshAgent>();
         //enemyMovement = GetComponent<EnemyMovement>();
     }
@@ -85,9 +87,12 @@ public class MiniBoss : MonoBehaviour
         {
             gameObject.GetComponent<MiniBossMovement>().enabled = false;
             anim.SetBool("Dead", true);
-            Destroy(gameObject);
+            
             questsManager.Deadboss1 = true;
             questsManager.Deadboss2 = true;
+            miniBossMovement.battleMusic.SetActive(false);
+            miniBossMovement.backMusic.SetActive(true);
+            Destroy(gameObject);
             //enemyMovement.battleMusic.SetActive(false);
             //enemyMovement.backMusic.SetActive(true);
             //gameObject.SetActive(false);
@@ -108,13 +113,13 @@ public class MiniBoss : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerSword" & Attack == true /*& isSuperCombo == true*/)
+        if (other.tag == "PlayerSword")
         {
             anim.SetTrigger("Hit");
             //AddHit();
-            HP = HP - 25f;
+            HP = HP - 5f;
         }
-        else if (other.tag == "PlayerSword" & Attack == true)
+        else if (other.tag == "PlayerSword")
         {
             anim.SetTrigger("Hit");
             //AddHit();
@@ -123,8 +128,8 @@ public class MiniBoss : MonoBehaviour
 
         if (other.tag == "Skill1")
         {
-            BurnTime = 10f;
-            HP = HP - 20f;
+            BurnTime = 5f;
+            HP = HP - 10f;
             StartCoroutine(BurnDamage());
             anim.SetTrigger("Hit");
 
@@ -141,7 +146,7 @@ public class MiniBoss : MonoBehaviour
             StartCoroutine(Stunning());
             anim.SetTrigger("Hit");
             anim.SetTrigger("stun");
-            HP = HP - 20f;
+            HP = HP - 15f;
         }
 
     }

@@ -114,19 +114,19 @@ public class Enemy : MonoBehaviour
         {
             anim.SetTrigger("Hit");
             //AddHit();
-            HP = HP - 25f;
+            HP = HP - 15f;
         }
-        else if (other.tag == "PlayerSword")
-        {
-            anim.SetTrigger("Hit");
-            //AddHit();
-            HP = HP - 5f;
-        }
+        //else if (other.tag == "PlayerSword")
+        //{
+        //    anim.SetTrigger("Hit");
+        //    //AddHit();
+        //    HP = HP - 5f;
+        //}
 
         if (other.tag == "Skill1")
         {
-            BurnTime = 10f;
-            HP = HP - 20f;
+            BurnTime = 5f;
+            HP = HP - 10f;
             StartCoroutine(BurnDamage());
             anim.SetTrigger("Hit");
 
@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(Stunning());
             anim.SetTrigger("Hit");
             anim.SetTrigger("stun");       
-            HP = HP - 20f;
+            HP = HP - 15f;
         }
 
     }
