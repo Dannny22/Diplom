@@ -13,6 +13,9 @@ TagManager:
   - Hittable
   - Enemy
   - CheckPoint
+  - Quest2
+  - QuestFinally
+  - Quests
   layers:
   - Default
   - TransparentFX
