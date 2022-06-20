@@ -36,11 +36,15 @@ namespace SG
 
             animatorHandler.PlayTargetAnimation("Damage_01", true);
 
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                animatorHandler.PlayTargetAnimation("Dead_01", true);
-            }
+            //if (currentHealth <= 0)
+            //{
+            //    currentHealth = 0;
+            //    animatorHandler.PlayTargetAnimation("Dead_01", true);
+            //}
+            //else if (currentHealth > 0)
+            //{
+            //    animatorHandler.PlayTargetAnimation("Dead_01", false);
+            //}
         }
     }
 }

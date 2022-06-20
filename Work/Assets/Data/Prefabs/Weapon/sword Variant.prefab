@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1333986122750988458}
   - component: {fileID: 930051010639309350}
   - component: {fileID: 186335085145972922}
+  - component: {fileID: 25575540779904049}
   m_Layer: 0
   m_Name: sword Variant
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,11 +94,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685595251266564479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0032496, y: 0.023261061, z: 0.0015652193}
-  m_Center: {x: 0.014392184, y: -0.015935302, z: 0.025713274}
+  m_Size: {x: 0.0032496, y: 0.024350272, z: 0.0015652193}
+  m_Center: {x: 0.014392163, y: -0.016479878, z: 0.025713382}
 --- !u!114 &186335085145972922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +111,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428dfd78e4de9084886f84e855f204a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeaponDamage: 25
+--- !u!136 &25575540779904049
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685595251266564479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.002721979
+  m_Height: 0.03368933
+  m_Direction: 1
+  m_Center: {x: 0.015043519, y: -0.0107216835, z: 0.025712403}
 --- !u!1 &2129172608224796113
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,9 +135,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2837900293850019102}
+  - component: {fileID: 8871736119597551269}
+  - component: {fileID: 7435905029735042462}
   m_Layer: 0
   m_Name: Weapon Pivot
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +160,32 @@ Transform:
   m_Father: {fileID: 3166439240965576890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.114, y: 5.759, z: -91.414}
+--- !u!65 &8871736119597551269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129172608224796113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0032496, y: 0.024350272, z: 0.0015652193}
+  m_Center: {x: 0.014392163, y: -0.016479878, z: 0.025713382}
+--- !u!114 &7435905029735042462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129172608224796113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428dfd78e4de9084886f84e855f204a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponDamage: 25
 --- !u!1 &2358376687117009408
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +195,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3166439240965576890}
+  - component: {fileID: -1162814838174307784}
+  - component: {fileID: -5946766744931437822}
   m_Layer: 0
   m_Name: sword Variant
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,10 +213,36 @@ Transform:
   m_GameObject: {fileID: 2358376687117009408}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 247.1359, y: 1.265, z: 564.9854}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
+  m_LocalScale: {x: 119.439995, y: 119.43998, z: 119.43998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2837900293850019102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-1162814838174307784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358376687117009408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5946766744931437822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358376687117009408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428dfd78e4de9084886f84e855f204a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponDamage: 25

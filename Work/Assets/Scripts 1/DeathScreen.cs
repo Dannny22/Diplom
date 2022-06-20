@@ -7,6 +7,7 @@ namespace SG
 
     public class DeathScreen : MonoBehaviour
     {
+        Animator anim;
         HealthBar1 healthBar;
         Respawn respawn;
         public GameObject deathScreenUI;

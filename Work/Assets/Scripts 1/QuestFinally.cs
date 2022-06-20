@@ -25,14 +25,14 @@ public class QuestFinally : MonoBehaviour
         //    Cursor.visible = true;
         //}
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Quest2"))
-    //    {
-    //        dialog = true;
-    //        Cursor.visible = true;
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("QuestFinally"))
+        {
+            dialog = true;
+            Cursor.visible = true;
+        }
+    }
     public void OnGUI()
     {
         if (dialog)

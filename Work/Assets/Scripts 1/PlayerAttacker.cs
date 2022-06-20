@@ -25,7 +25,7 @@ namespace SG
 
                 if (lastAttack == weapon.oh_light_attack_01)
                 {
-                    animatorHandler.PlayTargetAnimation(weapon.oh_light_attack_02, true);
+                    animatorHandler.PlayTargetAnimation(weapon.oh_heavy_attack_01, true);
                 }
             }
         }
@@ -40,8 +40,8 @@ namespace SG
 
         public void HandleHeavyAttack(WeaponItem weapon)
         {
-            animatorHandler.PlayTargetAnimation(weapon.oh_light_attack_01, true);
-            lastAttack = weapon.oh_light_attack_01;
+            animatorHandler.PlayTargetAnimation(weapon.oh_heavy_attack_01, true);
+            lastAttack = weapon.oh_heavy_attack_01;
             bladeSound.pitch = Random.Range(0.8f, 1.1f);
             bladeSound.Play();
         }
