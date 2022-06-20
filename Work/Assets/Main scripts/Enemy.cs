@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public static bool Attack;
     public static bool AttackEnemy;
-    EnemyMovement enemyMovement;
+    //EnemyMovement enemyMovement;
 
     //public bool isSuperCombo;
     //[SerializeField] private float maxTimeBetweenHits = 1;
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         //nav = GetComponent<NavMeshAgent>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        //enemyMovement = GetComponent<EnemyMovement>();
     }
 
 
@@ -89,8 +89,8 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
             anim.SetBool("Dead", true);
-            enemyMovement.battleMusic.SetActive(false);
-            enemyMovement.backMusic.SetActive(true);
+            //enemyMovement.battleMusic.SetActive(false);
+            //enemyMovement.backMusic.SetActive(true);
             //gameObject.SetActive(false);
             //gameObject.GetComponent<Animator>().SetBool("Dead", true);
             //Instantiate(Ragdoll, transform.position, transform.rotation);
@@ -100,6 +100,7 @@ public class Enemy : MonoBehaviour
         {
             //StunIU.gameObject.SetActive(false);
             //StunTimeUI.gameObject.SetActive(false);
+            
             gameObject.GetComponent<EnemyMovement>().enabled = true;
             gameObject.GetComponent<NavMeshAgent>().enabled = true;
         }
@@ -154,6 +155,7 @@ public class Enemy : MonoBehaviour
             //StunTimeUI.gameObject.SetActive(true);
             //StunTimeUI.text = "" + StunTime;
             StunTime = StunTime - 1f;
+            
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             yield return new WaitForSeconds(1f);
